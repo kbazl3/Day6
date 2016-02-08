@@ -80,13 +80,18 @@ var odds = [];
 //Write a function called divider that is given three arguments, nums, evens, and odds.
 //Have divider return an Array with the first item in the array being the evens array 
 //(all the even values from nums) and the second item in the Array being the odds array(all the odd values from nums).
+var nums = [1,2,34,54,55,34,32,11,19,17,54,66,13];
+var evens = [];
+var odds = [];
 function divider(a, b, c) {
     var lastAry = [];
+    var evens = [];
+    var odds = [];
     for (var i = 0; i < a.length; i++) {
         if (a[i] % 2 === 0) {
-            b.push(a[i]);
-        } else if ((a[i] + 1) % 2 === 0) {
-            c.push(a[i]);
+            evens.push(a[i]);
+        } else if (a[i] % 2 === 1) {
+            odds.push(a[i]);
         }
     }
     lastAry.push(evens);
@@ -110,20 +115,14 @@ var numbers = [0,3,4,5,6,7,9,14,17,24,25,26,29,30];
 //then loop through the array to see if that random number is in the array. If it is, return true, if it's not, return false
 
   //Code Here
-function finder(rand) {
-      var exist = "";
-      for (var i = 0; i < numbers.length; i++) {
-          //console.log(numbers[i]);
-          if (rand === numbers[i]) {
-              exist = true;
-              break;
-          } else {
-              exist = false;
-          }
-      }
-      //console.log(rand);
-      return exist;
-  }
+ function finder(ary) {
+    var rand = getRandomArbitrary();
+    if (ary.indexOf(rand) !== -1) {
+        return true;
+    } else {
+        return false;
+    }
+}
 
 //Next problem
 
@@ -243,11 +242,17 @@ function longer(ary1, ary2) {
 */
 
   //Code Here
-  function both(ary1, ary2) {
-      var newAry = ary1.concat(ary2);
+  /*function both(ary1, ary2) {
+      var newAry = [];
+      for (var i = 0; i < ary1.length; i++) {
+          if (ary1[i] === ary2[i]) {
+              newAry.push(ary1[i]);
+          }
+      }
       return newAry;
-  }
-/*function both(arr1, arr2) {
+      } */
+
+function both(arr1, arr2) {
     var nums = [];
     for (var i = 0; i < arr1.length; i++) {
     for (var j = 0; j < arr2.length; j++) {
@@ -257,7 +262,7 @@ function longer(ary1, ary2) {
 }
 }
 return nums;
-} */
+} 
   
   
 
@@ -304,17 +309,11 @@ sure that it's equal to 4. */
 Loop through your devMountainEmployees until you find cahlan, then remove him from the array.*/
 
   //Code Here
-
-devMountainEmployees.push("tyler", "cahlan", "ryan", "colt");
-//console.log(devMountainEmployees);
 for (var i = 0; i < devMountainEmployees.length; i++) {
     if (devMountainEmployees[i] === "cahlan") {
         devMountainEmployees.splice(i, 1);
     }
-    return devMountainEmployees;
 }
-
-console.log(devMountainEmployees);
 
 
 //NEXT PROBLEM
@@ -355,20 +354,36 @@ of Data is to have an Array full of objects. */
 //Create an empty array called users.
 
   //Code Here
+  var users = [];
 
 /*Now add three user objects to your users array. Each user object should contain the
 following properties. name, email, password, username.*/
 
 //include this as one of the objects in your array.
-var user1 = {
+var tyler = {
     name: 'Tyler McGinnis',
     email: 'tylermcginnis33@gmail.com',
     password: 'iLoveJavaScript',
     username: 'infiniateLoop'
 };
 
+var jimmy = {
+    name: 'Jimmy John',
+    email: 'jj@gmail.com',
+    password: 'freakyfast',
+    username: 'sandwich'
+};
+
+var kyle = {
+    name: 'Kyle Barlow',
+    email: 'kbazl@gmail.com',
+    password: 'codeisl0ve',
+    username: 'codeisl1fe'
+};
+
 //Your Code Here
 
+//users.push(tyler, jimmy, kyle);
 /*Now you have a very common data structure. Twitter is a good use case.
 It's easy to imagine that your followers list on Twitter is an Array full or objects
 and those objects contain properties about the specific person you follow.*/
@@ -378,6 +393,7 @@ objects until you find Tyler's account (use tylermcginnis33@gmail.com to find hi
 Once you find the particular index he's located in, delete him from the array.*/
 
   //Code Here
+
 
 //The activity we just did is very much how data works in 'the real world'.
 
